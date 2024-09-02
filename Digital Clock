@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<conio.h>
+#include<time.h>       // For Sleep function()
+#include<unistd.h>
+#include<stdlib.h>
+
+int main()
+{
+	int hr,min,sec;     //hour, Minute, Second resp.
+	hr = min = sec = 0;
+	
+	while(1)
+	{
+	    
+		printf("%2d::%2d::%2d",hr,min,sec);
+		
+		fflush(stdout);  // Clear buffer in gcc
+		sec++;        // increase seconds
+		
+		//clock updation
+		
+		if(sec==0)
+		{
+			min+=1;
+			sec=0;
+		}
+		if(min==60)
+		{
+			hr+=1;
+			min=0;
+		}
+		if(hr==24)
+		{
+			hr=0;
+			min=0;
+			sec=0;
+		}
+		sleep(1); // Wait till 1 sec.
+	}
+	
+}
