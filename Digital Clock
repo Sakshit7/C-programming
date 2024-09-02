@@ -1,8 +1,5 @@
 #include<stdio.h>
-#include<conio.h>
-#include<time.h>       // For Sleep function()
-#include<unistd.h>
-#include<stdlib.h>
+#include<windows.h>
 
 int main()
 {
@@ -11,7 +8,7 @@ int main()
 	
 	while(1)
 	{
-	    
+	    system("cls"); // Clear the console on Windows
 		printf("%2d::%2d::%2d",hr,min,sec);
 		
 		fflush(stdout);  // Clear buffer in gcc
@@ -19,14 +16,14 @@ int main()
 		
 		//clock updation
 		
-		if(sec==0)
+		if(sec==60)
 		{
-			min+=1;
+			min++;
 			sec=0;
 		}
 		if(min==60)
 		{
-			hr+=1;
+			hr++;
 			min=0;
 		}
 		if(hr==24)
@@ -35,7 +32,7 @@ int main()
 			min=0;
 			sec=0;
 		}
-		sleep(1); // Wait till 1 sec.
+		Sleep(1000); // Wait till 1 sec.
 	}
-	
+	return 0;
 }
